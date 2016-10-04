@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    header {
+        .logo {
+            float: left;
+            a {
+                img {
+                    margin: 10px 0 0;
+                    width: auto;
+                    height: 60px;
+                }
+            }
+        }
+        .person {
+            float: right;
+            text-align: right;
+            font-size: 16px;
+            .person__name {
+                color: #535353;
+                font-weight: bold;
+            }
+            .person__role {
+                color: #d8434b;
+            }
+            .person__logout {
+                a {
+                    display: inline-block;
+                    padding: 5px 10px;
+                    background: #535353;
+                    color: #fff;
+
+                    transition: all ease-out .2s;
+                    border: 1px solid #fff;
+
+                     &:hover {
+                            border: 1px solid #535353;
+                            text-decoration: none;
+                            color: #fff;
+                    }
+                }
+            }
+        }
+        nav {
+            margin: 25px 0 0;
+            ul {
+                list-style: none;
+                padding: 0;
+                li {
+                    display: inline-block;
+                    a {
+                        padding: 10px 20px;
+                        background: #dd3333;
+                        color: #ffffff;
+
+                        font-weight: bold;
+                        font-size: 16px;
+
+                        transition: all ease-out .2s;
+                        border: 1px solid #fff;
+
+                        
+                        &:hover {
+                            border: 1px solid #dd3333;
+                            text-decoration: none;
+                            color: #fff;
+                        }
+
+                        &:focus {
+                            border: 1px solid #dd3333;
+                            color: #fff;
+                        }
+                    }
+                    
+                }
+                li:nth-child(4) {
+                    float: right;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    body header nav ul li {
+        display: block;
+        width: 100%;
+        a {
+            display: block;
+            width: 100%;
+        }
+    }
+}
+

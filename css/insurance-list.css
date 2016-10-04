@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body .insurance-list {
+  margin: 25px;
+}
+body .insurance-list .container {
+  padding: 0;
+}
+body .insurance-list .container .insurance-list__header p {
+  padding: 10px 25px;
+  background-color: #dd3333;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+}
+body .insurance-list .container .insurance-list__list {
+  box-shadow: 0px 0px 10px #111111;
+}
+body .insurance-list .container .insurance-list__list .row {
+  margin: 0;
+}
+.gap {
+  height: 10px;
+}
+.hide {
+  dispaly: none;
+}
+#search {
+  padding-right: 15px;
+}
+.form-group span {
+  position: relative;
+  left: -24px;
+  top: 3px;
+  cursor: pointer;
+  display: none;
+}
+.form-group span:hover {
+  color: red;
+}

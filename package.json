@@ -1,0 +1,12 @@
+{
+  "name": "Portfolio",
+  "version": "0.0.1",
+  "scripts": {
+    "gulp": "gulp watch"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.6",
+    "gulp-less": "^3.0.5"
+  }
+}

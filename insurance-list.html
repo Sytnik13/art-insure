@@ -1,0 +1,232 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/insurance-list.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <section class="insurance-list">
+        <div class="container">
+            <div class="insurance-list__header">
+                <p>Список договоров</p>
+            </div>
+            <div class="insurance-list__list">
+                <div class="list__filters">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p>Продукт</p>
+                            <div class="filters__input-layout">
+                                <input id="OSAGO" class="productCheckbox" type="checkbox" name="OSAGO" value="осаго">
+                                <label for="OSAGO">ОСАГО</label>
+                            </div>
+                            <div class="filters__input-layout">
+                                <input id="CASCO" class="productCheckbox" type="checkbox" name="CASCO" value="каско">
+                                <label for="CASCO">КАСКО</label>
+                            </div>
+                            <div class="filters__input-layout">
+                                <input id="DGO" class="productCheckbox" type="checkbox" name="DGO" value="дго">
+                                <label for="DGO">ДГО</label>
+                            </div>
+                            <div class="filters__input-layout">
+                                <input id="DMS" class="productCheckbox" type="checkbox" name="DMS" value="дмс">
+                                <label for="DMS">ДМС</label>
+                            </div>    
+                        </div>
+                        <div class="col-md-2">
+                            <p>Пользователи</p>
+                            <select name="users" id="selectUsers">
+                                <option value="allUsers">Все</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Компании</p>
+                            <div class="filters__input-layout">
+                                <input id="Providna" type="checkbox" name="Providna" value="Провидна">
+                                <label for="Providna">Провидна</label>
+                            </div>
+                            <div class="filters__input-layout">
+                                <input id="Universal" type="checkbox" name="Universal" value="Универсальная">
+                                <label for="Universal">Универсальная</label>
+                            </div>
+                            <div class="filters__input-layout">
+                                <input id="UNIQA" type="checkbox" name="UNIQA" value="UNIQA">
+                                <label for="UNIQA">UNIQA</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Код та название ЦПОК</p>
+                            <select name="code" id="selectCode">
+                                <option value="allCode">Все</option>
+                                <option value="В душе не ебу">В душе не ебу</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Филиал</p>
+                            <select name="branch" id="selectBranch">
+                                <option value="allBranch">Все</option>
+                                
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Статус</p>
+                            <select name="status" id="selectStatus">
+                                <option value="allStatus">Все</option>
+                                <option value="Оформлен">Оформлен</option>
+                                <option value="Аннулирован">Аннулирован</option>
+                                <option value="Утерян">Утерян</option>
+                                <option value="Испорченный">Испорченный</option>
+                            </select>
+                            <button id="apply">Применить</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="list__filter">
+                    <span class="filter__title">Фильтр</span>
+                    <input id="filter" class="form-control" type="text" placeholder="Введите критерии поиска.">
+                    <span id="clearsearch" class="glyphicon glyphicon-remove"></span>
+                </div>
+                <div class="list__insurances table-responsive">
+                    <table id="tablecontent" class="table table-bordered">
+                        <thead>
+                            <tr class="active">
+                                <th>Номер</th>
+                                <th>Продукт</th>
+                                <th>Кросс-продукты</th>
+                                <th>Пользователь</th>
+                                <th>Компания</th>
+                                <th>Филиал</th>
+                                <th>Сумма платежа</th>
+                                <th>Статус</th>
+                                <th>Оформленный</th>
+                                <th>ФИО страхователя</th>
+                                <th>ИНН страхователя</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active">
+                                <td> 12321312</td>
+                                <td><b>КАСКО</b><br><small></small></td>
+                                <td></td>
+                                <td><b>Вальдемар</b><small></small></td>
+                                <td>Арт Драйв</td>
+                                <td>Київ</td>
+                                <td>5.01 грн.</td>
+                                <td><button class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="glyphicon glyphicon-print"></i></a></td>
+                                <td>2016-09-15</td>
+                                <td>тест тест тест</td>
+                                <td>qweqw</td>
+                                <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4305" class="btn btn-default" style="width: auto;">Редагувати</a></td>
+                            </tr>
+                            <tr>
+                                <td>АІ 1234567</td>
+                                <td><b>ОСАГО</b><br><small></small></td>
+                                <td><a href="/index.php?do=contracts&amp;ctype=dgo&amp;id=4123" class="btn btn-default width-auto">ДГО</a><a href="/index.php?do=contracts&amp;ctype=dms&amp;id=4123" class="btn btn-default width-auto">ДМС</a></td>
+                                <td><b>Игнат</b><small></small></td>
+                                <td>Арт Драйв</td>
+                                <td>Київ</td>
+                                <td>1296 грн.</td>
+                                <td><button class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i></button><a onclick="PrintOsago(4123)" class="btn btn-success" target="blank"><i class="glyphicon glyphicon-print"></i></a></td>
+                                <td>2016-08-19</td>
+                                <td>пролл  </td>
+                                <td>12312123</td>
+                                <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4123" class="btn btn-default" style="width: auto;">Редагувати</a></td>
+                            </tr>
+                            <tr>
+                                <td>АІ 1234567</td>
+                                <td><b>ОСАГО</b><br><small></small></td>
+                                <td><a href="/index.php?do=contracts&amp;ctype=dgo&amp;id=4123" class="btn btn-default width-auto">ДГО</a><a href="/index.php?do=contracts&amp;ctype=dms&amp;id=4123" class="btn btn-default width-auto">ДМС</a></td>
+                                <td><b>Игнат</b><small></small></td>
+                                <td>Арт Драйв</td>
+                                <td>Київ</td>
+                                <td>1296 грн.</td>
+                                <td><button class="btn btn-danger"><i class="icon-grey icon-ban-circle"></i></button><a onclick="PrintOsago(4123)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
+                                <td>2016-08-19</td>
+                                <td>пролл  </td>
+                                <td>12312123</td>
+                                <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4123" class="btn btn-default" style="width: auto;">Редагувати</a></td>
+                            </tr>
+                             <tr class="active">
+                                <td> 12321312</td>
+                                <td><b>КАСКО</b><br><small></small></td>
+                                <td></td>
+                                <td><b>Иуда</b><small></small></td>
+                                <td>Арт Драйв</td>
+                                <td>Львов</td>
+                                <td>5.01 грн.</td>
+                                <td><button class="btn btn-success"><i class="icon-green icon-check"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
+                                <td>2016-09-15</td>
+                                <td>тест тест тест</td>
+                                <td>qweqw</td>
+                                <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4305" class="btn btn-default" style="width: auto;">Редагувати</a></td>
+                            </tr>
+                             <tr class="active">
+                                <td> 12321312</td>
+                                <td><b>КАСКО</b><br><small></small></td>
+                                <td></td>
+                                <td><b>Иоан</b><small></small></td>
+                                <td>Арт Драйв</td>
+                                <td>Одесса</td>
+                                <td>5.01 грн.</td>
+                                <td><button class="btn btn-success"><i class="icon-green icon-check"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
+                                <td>2016-09-15</td>
+                                <td>тест тест тест</td>
+                                <td>qweqw</td>
+                                <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4305" class="btn btn-default" style="width: auto;">Редагувати</a></td>
+                            </tr>
+                             <tr class="active">
+                                <td> 12321312</td>
+                                <td><b>КАСКО</b><br><small></small></td>
+                                <td></td>
+                                <td><b>Василий</b><small></small></td>
+                                <td>Арт Драйв</td>
+                                <td>Житомыр</td>
+                                <td>5.01 грн.</td>
+                                <td><button class="btn btn-success"><i class="icon-green icon-check"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
+                                <td>2016-09-15</td>
+                                <td>тест тест тест</td>
+                                <td>qweqw</td>
+                                <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4305" class="btn btn-default" style="width: auto;">Редагувати</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- /container -->        
+        <script src="js/vendor/jquery-1.11.2.min.js"></script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/table-filter.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--<script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>-->
+    </body>
+</html>

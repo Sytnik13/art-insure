@@ -1,0 +1,30 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body .insurance-add {
+  margin: 25px;
+}
+body .insurance-add .container {
+  padding: 0;
+}
+body .insurance-add .container .insurance-add__header p {
+  padding: 10px 25px;
+  background-color: #dd3333;
+  color: #fff;
+  font-weight: bold;
+  font-size: 30px;
+}
+body .insurance-add .container .insurance-add__kind {
+  box-shadow: 0px 0px 10px #111111;
+}
+body .insurance-add .container .insurance-add__kind .row {
+  margin: 0;
+}
+body .insurance-add .container .insurance-add__kind .row div a {
+  padding: 40px 0;
+  text-align: center;
+  display: block;
+  color: #d8434b;
+  font-weight: bold;
+  font-size: 15px;
+}
