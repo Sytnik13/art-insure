@@ -57,15 +57,15 @@
                         <div class="col-md-2">
                             <p>Компании</p>
                             <div class="filters__input-layout">
-                                <input id="Providna" type="checkbox" name="Providna" value="Провидна">
+                                <input id="Providna" class="companyCheckbox" type="checkbox" name="Providna" value="провидна">
                                 <label for="Providna">Провидна</label>
                             </div>
                             <div class="filters__input-layout">
-                                <input id="Universal" type="checkbox" name="Universal" value="Универсальная">
+                                <input id="Universal" class="companyCheckbox" type="checkbox" name="Universal" value="универсальная">
                                 <label for="Universal">Универсальная</label>
                             </div>
                             <div class="filters__input-layout">
-                                <input id="UNIQA" type="checkbox" name="UNIQA" value="UNIQA">
+                                <input id="UNIQA" class="companyCheckbox" type="checkbox" name="UNIQA" value="uniqa">
                                 <label for="UNIQA">UNIQA</label>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
                         <div class="col-md-2">
                             <p>Статус</p>
                             <select name="status" id="selectStatus">
-                                <option value="allStatus">Все</option>
+                                <option>Все</option>
                                 <option value="Оформлен">Оформлен</option>
                                 <option value="Аннулирован">Аннулирован</option>
                                 <option value="Утерян">Утерян</option>
@@ -106,6 +106,7 @@
                         <thead>
                             <tr class="active">
                                 <th>Номер</th>
+                                <th>Компания</th>
                                 <th>Продукт</th>
                                 <th>Кросс-продукты</th>
                                 <th>Пользователь</th>
@@ -122,6 +123,7 @@
                         <tbody>
                             <tr class="active">
                                 <td> 12321312</td>
+                                <td>UNIQA</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Вальдемар</b><small></small></td>
@@ -136,6 +138,7 @@
                             </tr>
                             <tr>
                                 <td>АІ 1234567</td>
+                                <td>Универсальная</td>
                                 <td><b>ОСАГО</b><br><small></small></td>
                                 <td><a href="/index.php?do=contracts&amp;ctype=dgo&amp;id=4123" class="btn btn-default width-auto">ДГО</a><a href="/index.php?do=contracts&amp;ctype=dms&amp;id=4123" class="btn btn-default width-auto">ДМС</a></td>
                                 <td><b>Игнат</b><small></small></td>
@@ -150,6 +153,7 @@
                             </tr>
                             <tr>
                                 <td>АІ 1234567</td>
+                                <td>UNIQA</td>
                                 <td><b>ОСАГО</b><br><small></small></td>
                                 <td><a href="/index.php?do=contracts&amp;ctype=dgo&amp;id=4123" class="btn btn-default width-auto">ДГО</a><a href="/index.php?do=contracts&amp;ctype=dms&amp;id=4123" class="btn btn-default width-auto">ДМС</a></td>
                                 <td><b>Игнат</b><small></small></td>
@@ -162,8 +166,24 @@
                                 <td>12312123</td>
                                 <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4123" class="btn btn-default" style="width: auto;">Редагувати</a></td>
                             </tr>
+                             <tr>
+                                <td>АІ 1234567</td>
+                                <td>Провидна</td>
+                                <td><b>ОСАГО</b><br><small></small></td>
+                                <td></td>
+                                <td><b>Игнат</b><small></small></td>
+                                <td>Арт Драйв</td>
+                                <td>Київ</td>
+                                <td>1296 грн.</td>
+                                <td><button class="btn btn-danger"><i class="icon-grey icon-ban-circle"></i></button><a onclick="PrintOsago(4123)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
+                                <td>2016-08-19</td>
+                                <td>пролл  </td>
+                                <td>12312123</td>
+                                <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4123" class="btn btn-default" style="width: auto;">Редагувати</a></td>
+                            </tr>
                              <tr class="active">
                                 <td> 12321312</td>
+                                <td>Провидна</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Иуда</b><small></small></td>
@@ -178,6 +198,7 @@
                             </tr>
                              <tr class="active">
                                 <td> 12321312</td>
+                                <td>Универсальная</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Иоан</b><small></small></td>
@@ -192,6 +213,7 @@
                             </tr>
                              <tr class="active">
                                 <td> 12321312</td>
+                                <td>Провидна</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Василий</b><small></small></td>

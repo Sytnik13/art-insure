@@ -25,13 +25,12 @@ $(document).ready(function () {
         }
     });
 
-    
+
     var users = [];
     var affiliate = [];
 
-
-    function getData() {
-        $("#tablecontent tbody tr td:nth-child(4)").each(function() {
+    function getOptions() {
+        $("#tablecontent tbody tr td:nth-child(5)").each(function () {
             console.log(this.innerText);
             var check = users.indexOf(this.innerText);
             console.log(check);
@@ -41,7 +40,7 @@ $(document).ready(function () {
             }
         });
 
-        $("#tablecontent tbody tr td:nth-child(6)").each(function() {
+        $("#tablecontent tbody tr td:nth-child(7)").each(function () {
             console.log(this.innerText);
             var check = affiliate.indexOf(this.innerText);
             console.log(check);
@@ -51,46 +50,128 @@ $(document).ready(function () {
             }
         });
 
-        drawData();
+        drawOptions();
     }
-    
-    function drawData() {
-        users.forEach(function(item, i, arr) {
+
+    function drawOptions() {
+        users.forEach(function (item, i, arr) {
             console.log
             $('#selectUsers').append($('<option>', {
                 value: item,
                 text: item
             }));
-            
+
         });
 
-        affiliate.forEach(function(item, i, arr) {
+        affiliate.forEach(function (item, i, arr) {
             console.log
             $('#selectBranch').append($('<option>', {
                 value: item,
                 text: item
             }));
-            
+
         });
     }
 
-    getData();
+    getOptions();
 
-    $(".productCheckbox").change(function() {
-        console.log($(this).attr('value'));
-        var value = $(this).attr('value');
-        if(this.checked) {
-            $("#tablecontent tbody tr").addClass('hide');
-            $("#tablecontent tbody tr").find('td').each(function () {
-                var tbresult = $(this).text().replace(/ +?/g, "").toLowerCase();
-                if (tbresult.indexOf(value) !== -1) {
-                    $(this).closest('tr').removeClass('hide');
-                    $(this).addClass('success');
-                } else {
-                    $(this).removeClass('success');
-                }
-            });
+    Array.prototype.remove = function (from, to) {
+        var rest = this.slice((to || from) + 1 || this.length);
+        this.length = from < 0 ? this.length + from : from;
+        return this.push.apply(this, rest);
+    };
+
+
+    var products = [];
+    $(".productCheckbox").change(function () {
+        if (this.checked) {
+            products.push($(this).attr('value'));
+        } else {
+            var position = products.indexOf($(this).attr('value'));
+            products.remove(position);
+
         }
     });
-    
+
+    var companies = [];
+    $(".companyCheckbox").change(function () {
+        if (this.checked) {
+            companies.push($(this).attr('value'));
+        } else {
+            var position = companies.indexOf($(this).attr('value'));
+            companies.remove(position);
+        }
+    });
+
+    var user = '';
+    $("#selectUsers").change(function () {
+        var userSelected = $("#selectUsers option:selected").val().toLowerCase();
+        if (userSelected === 'allusers') {
+            userSelected = '';
+        }
+        user = userSelected;
+        console.log(user);
+
+        
+    });
+
+    var branch = '';
+    $("#selectBranch").change(function () {
+        var branchSelected = $("#selectBranch option:selected").val().toLowerCase();
+        if (branchSelected === 'allbranch') {
+            branchSelected = '';
+        }
+        branch = branchSelected;
+        console.log(branch);
+
+        
+    });
+
+    function filter(productArr, userVal, companyArr, branchVal) {
+        console.log(productArr);
+        console.log(userVal);
+        console.log(companyArr);
+        console.log(branchVal);
+        $("#tablecontent tbody tr").addClass('hide');
+        $("#tablecontent tbody tr").each(function () {
+            var trResult = $(this).text().replace(/ +?/g, "").toLowerCase();
+            var productCheck = false;
+            var companyCheck = false;
+
+            if (productArr.length > 0) {   
+                productCheck = false;
+            } else {
+                productCheck = true;
+            }
+
+            if (companyArr.length > 0) {   
+                companyCheck = false;
+            } else {
+                companyCheck = true;
+            }
+            
+            //console.log(trResult);
+            for (var product = 0; product < productArr.length; product++) {
+                if (trResult.indexOf(productArr[product]) !== -1) {
+                    productCheck = true;
+                }
+            }
+
+            for (var company = 0; company < companyArr.length; company++) {
+                if (trResult.indexOf(companyArr[company]) !== -1) {
+                    companyCheck = true;
+                }
+            }
+
+            if (trResult.indexOf(userVal) !== -1 && trResult.indexOf(branchVal) !== -1 && productCheck === true && companyCheck === true) {
+                $(this).closest('tr').removeClass('hide');
+            }
+            
+        });
+    };
+
+    $("#apply").click(function () {
+        filter(products, user, companies, branch);
+    });
+  
 });
