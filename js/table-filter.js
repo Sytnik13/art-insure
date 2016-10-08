@@ -31,22 +31,16 @@ $(document).ready(function () {
 
     function getOptions() {
         $("#tablecontent tbody tr td:nth-child(5)").each(function () {
-            console.log(this.innerText);
             var check = users.indexOf(this.innerText);
-            console.log(check);
             if (check == -1) {
                 users.push(this.innerText);
-                console.log(users);
             }
         });
 
-        $("#tablecontent tbody tr td:nth-child(7)").each(function () {
-            console.log(this.innerText);
+        $("#tablecontent tbody tr td:nth-child(6)").each(function () {
             var check = affiliate.indexOf(this.innerText);
-            console.log(check);
             if (check == -1) {
                 affiliate.push(this.innerText);
-                console.log(users);
             }
         });
 
@@ -55,7 +49,6 @@ $(document).ready(function () {
 
     function drawOptions() {
         users.forEach(function (item, i, arr) {
-            console.log
             $('#selectUsers').append($('<option>', {
                 value: item,
                 text: item
@@ -64,7 +57,6 @@ $(document).ready(function () {
         });
 
         affiliate.forEach(function (item, i, arr) {
-            console.log
             $('#selectBranch').append($('<option>', {
                 value: item,
                 text: item
@@ -86,9 +78,11 @@ $(document).ready(function () {
     $(".productCheckbox").change(function () {
         if (this.checked) {
             products.push($(this).attr('value'));
+            filter(products, user, companies, branch);
         } else {
             var position = products.indexOf($(this).attr('value'));
             products.remove(position);
+            filter(products, user, companies, branch);
 
         }
     });
@@ -97,9 +91,11 @@ $(document).ready(function () {
     $(".companyCheckbox").change(function () {
         if (this.checked) {
             companies.push($(this).attr('value'));
+            filter(products, user, companies, branch);
         } else {
             var position = companies.indexOf($(this).attr('value'));
             companies.remove(position);
+            filter(products, user, companies, branch);
         }
     });
 
@@ -108,9 +104,11 @@ $(document).ready(function () {
         var userSelected = $("#selectUsers option:selected").val().toLowerCase();
         if (userSelected === 'allusers') {
             userSelected = '';
+            filter(products, user, companies, branch);
         }
         user = userSelected;
         console.log(user);
+        filter(products, user, companies, branch);
 
         
     });
@@ -120,18 +118,16 @@ $(document).ready(function () {
         var branchSelected = $("#selectBranch option:selected").val().toLowerCase();
         if (branchSelected === 'allbranch') {
             branchSelected = '';
+            filter(products, user, companies, branch);
         }
         branch = branchSelected;
         console.log(branch);
+        filter(products, user, companies, branch);
 
         
     });
 
     function filter(productArr, userVal, companyArr, branchVal) {
-        console.log(productArr);
-        console.log(userVal);
-        console.log(companyArr);
-        console.log(branchVal);
         $("#tablecontent tbody tr").addClass('hide');
         $("#tablecontent tbody tr").each(function () {
             var trResult = $(this).text().replace(/ +?/g, "").toLowerCase();
@@ -150,7 +146,6 @@ $(document).ready(function () {
                 companyCheck = true;
             }
             
-            //console.log(trResult);
             for (var product = 0; product < productArr.length; product++) {
                 if (trResult.indexOf(productArr[product]) !== -1) {
                     productCheck = true;
@@ -169,9 +164,5 @@ $(document).ready(function () {
             
         });
     };
-
-    $("#apply").click(function () {
-        filter(products, user, companies, branch);
-    });
   
 });

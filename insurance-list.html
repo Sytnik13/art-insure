@@ -28,6 +28,7 @@
             </div>
             <div class="insurance-list__list">
                 <div class="list__filters">
+                    <p class="filters__title">Фильтр</p>
                     <div class="row">
                         <div class="col-md-2">
                             <p>Продукт</p>
@@ -86,20 +87,19 @@
                         <div class="col-md-2">
                             <p>Статус</p>
                             <select name="status" id="selectStatus">
-                                <option>Все</option>
+                                <option value="allStatus">Все</option>
                                 <option value="Оформлен">Оформлен</option>
                                 <option value="Аннулирован">Аннулирован</option>
                                 <option value="Утерян">Утерян</option>
                                 <option value="Испорченный">Испорченный</option>
                             </select>
-                            <button id="apply">Применить</button>
                         </div>
                     </div>
                 </div>
                 <div class="list__filter">
-                    <span class="filter__title">Фильтр</span>
+                    <p class="filter__title">Быстрый поиск</p>
                     <input id="filter" class="form-control" type="text" placeholder="Введите критерии поиска.">
-                    <span id="clearsearch" class="glyphicon glyphicon-remove"></span>
+                    <span id="clearsearch" class="clearsearch glyphicon glyphicon-remove"></span>
                 </div>
                 <div class="list__insurances table-responsive">
                     <table id="tablecontent" class="table table-bordered">
@@ -110,7 +110,6 @@
                                 <th>Продукт</th>
                                 <th>Кросс-продукты</th>
                                 <th>Пользователь</th>
-                                <th>Компания</th>
                                 <th>Филиал</th>
                                 <th>Сумма платежа</th>
                                 <th>Статус</th>
@@ -121,13 +120,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="active">
+                            <tr>
                                 <td> 12321312</td>
                                 <td>UNIQA</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Вальдемар</b><small></small></td>
-                                <td>Арт Драйв</td>
                                 <td>Київ</td>
                                 <td>5.01 грн.</td>
                                 <td><button class="btn btn-success"><i class="glyphicon glyphicon-ok-sign"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="glyphicon glyphicon-print"></i></a></td>
@@ -142,7 +140,6 @@
                                 <td><b>ОСАГО</b><br><small></small></td>
                                 <td><a href="/index.php?do=contracts&amp;ctype=dgo&amp;id=4123" class="btn btn-default width-auto">ДГО</a><a href="/index.php?do=contracts&amp;ctype=dms&amp;id=4123" class="btn btn-default width-auto">ДМС</a></td>
                                 <td><b>Игнат</b><small></small></td>
-                                <td>Арт Драйв</td>
                                 <td>Київ</td>
                                 <td>1296 грн.</td>
                                 <td><button class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i></button><a onclick="PrintOsago(4123)" class="btn btn-success" target="blank"><i class="glyphicon glyphicon-print"></i></a></td>
@@ -157,7 +154,6 @@
                                 <td><b>ОСАГО</b><br><small></small></td>
                                 <td><a href="/index.php?do=contracts&amp;ctype=dgo&amp;id=4123" class="btn btn-default width-auto">ДГО</a><a href="/index.php?do=contracts&amp;ctype=dms&amp;id=4123" class="btn btn-default width-auto">ДМС</a></td>
                                 <td><b>Игнат</b><small></small></td>
-                                <td>Арт Драйв</td>
                                 <td>Київ</td>
                                 <td>1296 грн.</td>
                                 <td><button class="btn btn-danger"><i class="icon-grey icon-ban-circle"></i></button><a onclick="PrintOsago(4123)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
@@ -172,7 +168,6 @@
                                 <td><b>ОСАГО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Игнат</b><small></small></td>
-                                <td>Арт Драйв</td>
                                 <td>Київ</td>
                                 <td>1296 грн.</td>
                                 <td><button class="btn btn-danger"><i class="icon-grey icon-ban-circle"></i></button><a onclick="PrintOsago(4123)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
@@ -181,13 +176,12 @@
                                 <td>12312123</td>
                                 <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4123" class="btn btn-default" style="width: auto;">Редагувати</a></td>
                             </tr>
-                             <tr class="active">
+                             <tr>
                                 <td> 12321312</td>
                                 <td>Провидна</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Иуда</b><small></small></td>
-                                <td>Арт Драйв</td>
                                 <td>Львов</td>
                                 <td>5.01 грн.</td>
                                 <td><button class="btn btn-success"><i class="icon-green icon-check"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
@@ -196,13 +190,12 @@
                                 <td>qweqw</td>
                                 <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4305" class="btn btn-default" style="width: auto;">Редагувати</a></td>
                             </tr>
-                             <tr class="active">
+                             <tr>
                                 <td> 12321312</td>
                                 <td>Универсальная</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Иоан</b><small></small></td>
-                                <td>Арт Драйв</td>
                                 <td>Одесса</td>
                                 <td>5.01 грн.</td>
                                 <td><button class="btn btn-success"><i class="icon-green icon-check"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>
@@ -211,13 +204,12 @@
                                 <td>qweqw</td>
                                 <td><a href="/index.php?do=agreement&amp;operation=editagreement&amp;id=4305" class="btn btn-default" style="width: auto;">Редагувати</a></td>
                             </tr>
-                             <tr class="active">
+                             <tr>
                                 <td> 12321312</td>
                                 <td>Провидна</td>
                                 <td><b>КАСКО</b><br><small></small></td>
                                 <td></td>
                                 <td><b>Василий</b><small></small></td>
-                                <td>Арт Драйв</td>
                                 <td>Житомыр</td>
                                 <td>5.01 грн.</td>
                                 <td><button class="btn btn-success"><i class="icon-green icon-check"></i></button><a onclick="PrintKASKO(4305)" class="btn btn-success" target="blank"><i class="icon-green icon-print"></i></a></td>

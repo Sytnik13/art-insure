@@ -20,6 +20,39 @@ body .insurance-list .container .insurance-list__list {
 body .insurance-list .container .insurance-list__list .row {
   margin: 0;
 }
+body .insurance-list .container .insurance-list__list .list__filters {
+  padding: 0 10px 10px;
+}
+body .insurance-list .container .insurance-list__list .list__filters p {
+  font-weight: bold;
+}
+body .insurance-list .container .insurance-list__list .list__filters .filters__title {
+  font-size: 20px;
+}
+body .insurance-list .container .insurance-list__list .list__filters label {
+  font-weight: normal;
+}
+body .insurance-list .container .insurance-list__list .list__filter {
+  padding: 0 10px 10px;
+}
+body .insurance-list .container .insurance-list__list .list__filter .filter__title {
+  font-weight: bold;
+  font-size: 20px;
+}
+body .insurance-list .container .insurance-list__list .list__filter input {
+  display: inline;
+  margin: 0 0 0 15px;
+  max-width: 320px;
+}
+body .insurance-list .container .insurance-list__list .list__filter .clearsearch {
+  display: inline;
+  margin: 0 0 0 -25px;
+}
+@media (min-width: 1200px) {
+  body .insurance-list .container .insurance-list__list .list__insurances {
+    overflow-x: hidden;
+  }
+}
 .gap {
   height: 10px;
 }
