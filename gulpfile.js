@@ -15,11 +15,16 @@ gulp.task('default', function () {
         .pipe(less())
         .pipe(gulp.dest('./css'))
         .pipe(cleanCss())
+    gulp.src('less/reports.less')
+        .pipe(less())
+        .pipe(gulp.dest('./css'))
+        .pipe(cleanCss())    
 
 });
 
 gulp.task('watch',function () {
     gulp.watch('less/header.less', ['default']);
     gulp.watch('less/insurance-add.less', ['default']);
-    gulp.watch('less/insurance-list.less', ['default'])
+    gulp.watch('less/insurance-list.less', ['default']);
+    gulp.watch('less/reports.less', ['default']);
 });
